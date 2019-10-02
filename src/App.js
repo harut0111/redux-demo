@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-
-import Main from './js/component/Main';
-import Second from './js/component/Second';
-
+import Count from "./js/components/Counter";
+import { Provider } from "react-redux";
+import store from "./js/redux/store/store";
 
 function App() {
   return (
     <div className="App">
-      <Main />
-      <Second />
+      <Provider store={store}>
+       <Count />
+      </Provider>
     </div>
   );
 }
