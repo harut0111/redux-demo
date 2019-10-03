@@ -1,41 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux"
 import { INC, DEC } from '../constants/actionNames';
+import Amount from './Amount'; 
+import LogState from "./LogState";
+
 
 
 function Counter(props) {
     console.log("render Counter");
-    const [amount, setAmount] = useState(1);
     return (
         <div>
             <h1>I am a counter</h1>
             <div>
                 <p>Count: {props.count}</p>
-                Inc/Dec Amount --> 
-                <input id="myInp" type="number" value={amount} onChange={(e) => setAmount(+e.target.value)}/>
+                <Amount />
             </div>
-            <button onClick={() => props.onIncrementClick(amount)}>Increment</button>
-            <button onClick={() => props.onDecrementClick(amount)}>Decrement</button>
+            <button onClick={() => props.onIncrementClick(props.amount)}>Increment</button>
+            <button onClick={() => props.onDecrementClick(props.amount)}>Decrement</button>
+            <LogState />
         </div>
     )
 }
 
 function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
+    console.log('mapStateToProps Counter', state);
     return {
-        count: state.count
+        count: state.count,
+        amount: state.amount,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        onIncrementClick: (amount) => {
-            console.log("trigger/dispatch increment action");
+        onIncrementClick(amount)  {
+            console.log("dispatch increment action");
             dispatch({type: INC, payload: amount});
         },
-        onDecrementClick: (amount) => {
-            console.log("trigger/dispatch decrement action");
-            dispatch({type: DEC, payload: amount});
+        onDecrementClick(amount) {
+            console.log("dispatch decrement action");
+            const action = {type: DEC, payload: amount}; // type is required
+            dispatch(action);
         }
     }
 }
