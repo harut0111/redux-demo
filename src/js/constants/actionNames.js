@@ -1,4 +1,6 @@
 const INC = "INCREMENT";
 const DEC = "DECREMENT";
+const VAL_CHANGE = 'VAL_CHANGE';
+const INP_VAL_CHANGE = "INP_VAL_CHANGE";
 
-export {INC, DEC};
+export { INC, DEC, VAL_CHANGE, INP_VAL_CHANGE };
