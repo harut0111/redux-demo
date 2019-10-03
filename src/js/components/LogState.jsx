@@ -8,7 +8,7 @@ const LogState = (props) => {
     // const state = store.getState();
     return(
         <div>
-            <h1>Current State Changes</h1>
+            <h1>Current State</h1>
             {/* <p>{JSON.stringify(state)}</p> */}
             <p>count: {props.count}  amount: {props.amount} </p>
             <p>inputVal: {props.inputVal}</p>
