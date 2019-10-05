@@ -15,13 +15,3 @@ function App() {
 }
 
 export default App;
-
-// Աշխատանքի հերթականությունը դիտելու համար console-ը նայել
-
-
-// getState() method does't couse rerender so it will call only after re/render
-// const state = store.getState();
-
-// սթեյթի փոփոխությունից հետ(new state version) այն բոլոր mapStateToProps-ները
-// աշխատում են բայց rerender լինեում է միայն այն կոմպոնենտը որ օգտագործում է
-// այդ փոփոխված արժեքը, իսկ մյուս կոմպոնենտները rerender չեն լինում։
